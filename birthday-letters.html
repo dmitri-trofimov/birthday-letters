@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>С ДНЁМ РОЖДЕНИЯ КАТЯ И ВАНЯ!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #e8e8e8;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .b { color: hsl(199, 100%, 75%); } /* голубой  */
+    .y { color: hsl( 46, 100%, 75%); } /* жёлтый  */
+    .g { color: hsl(120, 100%, 75%); } /* зелёный */
+    .r { color: hsl(355, 100%, 75%); } /* красный */
+
+    /* ── Страница A4 портретная ── */
+    .page {
+      width: 210mm;
+      height: 297mm;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 8mm auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+    }
+
+    /* ── Сетка 2×2 для букв A6 ── */
+    .letters {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .cell {
+      width: 105mm;
+      height: 148.5mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-right: 0.3mm dashed #d0d0d0;
+      border-bottom: 0.3mm dashed #d0d0d0;
+    }
+    .cell:nth-child(2n)   { border-right: none; }
+    .cell:nth-child(n+3)  { border-bottom: none; }
+
+    .big {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      font-size: 110mm;
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* ── Итоговая страница ── */
+    .summary {
+      flex-direction: column;
+      gap: 10mm;
+    }
+    .summary-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      font-size: 11mm;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
+    /* ── Страница разрезания ── */
+    .cut-guide {
+      position: relative;
+      overflow: hidden;
+    }
+    .cut-v {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      border-left: 0.3mm dashed #888;
+      transform: translateX(-50%);
+    }
+    .cut-h {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 0;
+      border-top: 0.3mm dashed #888;
+      transform: translateY(-50%);
+    }
+
+    /* ── Печать ── */
+    @media print {
+      @page { size: A4 portrait; margin: 0; }
+      html, body { background: white; width: 210mm; height: 297mm; }
+
+      .page {
+        margin: 0; padding: 0;
+        box-shadow: none;
+        page-break-after: always;
+        break-after: page;
+      }
+      .page:last-child {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      .cell {
+        border-right: none;
+        border-bottom: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 1: С Д Н Ё -->
+<div class="page"><div class="letters">
+  <div class="cell"><span class="big b">С</span></div>
+  <div class="cell"><span class="big y">Д</span></div>
+  <div class="cell"><span class="big g">Н</span></div>
+  <div class="cell"><span class="big r">Ё</span></div>
+</div></div>
+
+<!-- 2: М Р О Ж -->
+<div class="page"><div class="letters">
+  <div class="cell"><span class="big b">М</span></div>
+  <div class="cell"><span class="big y">Р</span></div>
+  <div class="cell"><span class="big g">О</span></div>
+  <div class="cell"><span class="big r">Ж</span></div>
+</div></div>
+
+<!-- 3: Д Е Н И -->
+<div class="page"><div class="letters">
+  <div class="cell"><span class="big b">Д</span></div>
+  <div class="cell"><span class="big y">Е</span></div>
+  <div class="cell"><span class="big g">Н</span></div>
+  <div class="cell"><span class="big r">И</span></div>
+</div></div>
+
+<!-- 4: Я ! К А -->
+<div class="page"><div class="letters">
+  <div class="cell"><span class="big b">Я</span></div>
+  <div class="cell"><span class="big g">!</span></div>
+  <div class="cell"><span class="big r">К</span></div>
+  <div class="cell"><span class="big g">А</span></div>
+</div></div>
+
+<!-- 5: Т Я И В -->
+<div class="page"><div class="letters">
+  <div class="cell"><span class="big r">Т</span></div>
+  <div class="cell"><span class="big g">Я</span></div>
+  <div class="cell"><span class="big y">И</span></div>
+  <div class="cell"><span class="big b">В</span></div>
+</div></div>
+
+<!-- 6: А Н Я — -->
+<div class="page"><div class="letters">
+  <div class="cell"><span class="big y">А</span></div>
+  <div class="cell"><span class="big b">Н</span></div>
+  <div class="cell"><span class="big y">Я</span></div>
+  <div class="cell"></div>
+</div></div>
+
+<!-- 7: Итоговая строка -->
+<div class="page summary">
+  <div class="summary-text">
+    <span class="b">С</span>&nbsp;<span class="y">Д</span><span class="g">Н</span><span class="r">Ё</span><span class="b">М</span>&nbsp;<span class="y">Р</span><span class="g">О</span><span class="r">Ж</span><span class="b">Д</span><span class="y">Е</span><span class="g">Н</span><span class="r">И</span><span class="b">Я</span>&nbsp;<span class="r">К</span><span class="g">А</span><span class="r">Т</span><span class="g">Я</span>&nbsp;<span class="y">И</span>&nbsp;<span class="b">В</span><span class="y">А</span><span class="b">Н</span><span class="y">Я</span><span class="g">!</span>
+  </div>
+</div>
+
+<!-- 8: Шаблон разрезания (крест) -->
+<div class="page cut-guide">
+  <div class="cut-v"></div>
+  <div class="cut-h"></div>
+</div>
+
+</body>
+</html>
